@@ -1,197 +1,176 @@
 {
-    "info": {
-        "name": "Encryption Service API",
-        "_postman_id": "uuid",
-        "description": "API for encryption and decryption services",
-        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-    },
-    "item": [
-        {
-            "name": "Add User",
-            "request": {
-                "method": "POST",
-                "header": [
-                    {
-                        "key": "Content-Type",
-                        "value": "application/json"
-                    }
-                ],
-                "body": {
-                    "mode": "raw",
-                    "raw": "{\n    \"login\": \"Sergey\",\n    \"secret\": \"password1\"\n}"
-                },
-                "url": {
-                    "raw": "http://127.0.0.1:5000/users",
-                    "protocol": "http",
-                    "host": [
-                        "127.0.0.1"
-                    ],
-                    "port": "5000",
-                    "path": [
-                        "users"
-                    ]
-                }
-            },
-            "response": []
-        },
-        {
-            "name": "Get Users",
-            "request": {
-                "method": "GET",
-                "url": {
-                    "raw": "http://127.0.0.1:5000/users",
-                    "protocol": "http",
-                    "host": [
-                        "127.0.0.1"
-                    ],
-                    "port": "5000",
-                    "path": [
-                        "users"
-                    ]
-                }
-            },
-            "response": []
-        },
-        {
-            "name": "Get Methods",
-            "request": {
-                "method": "GET",
-                "url": {
-                    "raw": "http://127.0.0.1:5000/methods",
-                    "protocol": "http",
-                    "host": [
-                        "127.0.0.1"
-                    ],
-                    "port": "5000",
-                    "path": [
-                        "methods"
-                    ]
-                }
-            },
-            "response": []
-        },
-        {
-            "name": "Encrypt Data with Vigenere",
-            "request": {
-                "method": "POST",
-                "header": [
-                    {
-                        "key": "Content-Type",
-                        "value": "application/json"
-                    }
-                ],
-                "body": {
-                    "mode": "raw",
-                    "raw": "{\n    \"user_login\": \"SERGEY\",\n    \"secret\": \"password1\",\n    \"method_id\": 1,\n    \"text\": \"зашифрованная фраза\",\n    \"params\": {\n        \"key\": \"ключ\"\n    },\n    \"action\": \"encrypt\"\n}"
-                },
-                "url": {
-                    "raw": "http://127.0.0.1:5000/sessions",
-                    "protocol": "http",
-                    "host": [
-                        "127.0.0.1"
-                    ],
-                    "port": "5000",
-                    "path": [
-                        "sessions"
-                    ]
-                }
-            },
-            "response": []
-        },
-        {
-            "name": "Decrypt Data with Vigenere",
-            "request": {
-                "method": "POST",
-                "header": [
-                    {
-                        "key": "Content-Type",
-                        "value": "application/json"
-                    }
-                ],
-                "body": {
-                    "mode": "raw",
-                    "raw": "{\n    \"user_login\": \"SERGEY\",\n    \"secret\": \"password1\",\n    \"method_id\": 1,\n    \"text\": \"шифр\",\n    \"params\": {\n        \"key\": \"ключ\"\n    },\n    \"action\": \"decrypt\"\n}"
-                },
-                "url": {
-                    "raw": "http://127.0.0.1:5000/sessions",
-                    "protocol": "http",
-                    "host": [
-                        "127.0.0.1"
-                    ],
-                    "port": "5000",
-                    "path": [
-                        "sessions"
-                    ]
-                }
-            },
-            "response": []
-        },
-        {
-            "name": "Get Session Details",
-            "request": {
-                "method": "GET",
-                "url": {
-                    "raw": "http://127.0.0.1:5000/sessions/1",
-                    "protocol": "http",
-                    "host": [
-                        "127.0.0.1"
-                    ],
-                    "port": "5000",
-                    "path": [
-                        "sessions",
-                        "1"
-                    ]
-                }
-            },
-            "response": []
-        },
-        {
-            "name": "Get All Sessions",
-            "request": {
-                "method": "GET",
-                "url": {
-                    "raw": "http://127.0.0.1:5000/sessions/all",
-                    "protocol": "http",
-                    "host": [
-                        "127.0.0.1"
-                    ],
-                    "port": "5000",
-                    "path": [
-                        "sessions",
-                        "all"
-                    ]
-                }
-            },
-            "response": []
-        },
-        {
-            "name": "Delete Session",
-            "request": {
-                "method": "DELETE",
-                "header": [
-                    {
-                        "key": "Content-Type",
-                        "value": "application/json"
-                    }
-                ],
-                "body": {
-                    "mode": "raw",
-                    "raw": "{\n    \"secret\": \"password1\"\n}"
-                },
-                "url": {
-                    "raw": "http://127.0.0.1:5000/sessions/1",
-                    "protocol": "http",
-                    "host": [
-                        "127.0.0.1"
-                    ],
-                    "port": "5000",
-                    "path": [
-                        "sessions",
-                        "1"
-                    ]
-                }
-            },
-            "response": []
+  "info": {
+    "_postman_id": "446045e1-6f02-4c61-9046-f30931d5ac3f",
+    "name": "Insomnia Requests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "get session by id /sessions/:id",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "User-Agent",
+            "value": "insomnia/9.2.0"
+          }
+        ],
+        "url": {
+          "raw": "{{_.url}}sessions/1",
+          "host": [
+            "{{_.url}}"
+          ],
+          "path": [
+            "sessions",
+            "1"
+          ]
         }
-    ]
+      }
+    },
+    {
+      "name": "delete session by id /sessions/:id",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "User-Agent",
+            "value": "insomnia/9.2.0"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"user_id\": 1,\n\t\"secret\": \"terx5ad\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{_.url}}sessions/1",
+          "host": [
+            "{{_.url}}"
+          ],
+          "path": [
+            "sessions",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "encrypt data /ecnrypt",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "User-Agent",
+            "value": "insomnia/9.2.0"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"user_id\": 1,\n\t\"method_id\": 1,\n\t\"data_in\": \"HELLO\",\n\t\"json_params\": {\n\t\t\"key\": \"terx5ad\"\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{_.url}}encrypt",
+          "host": [
+            "{{_.url}}"
+          ],
+          "path": [
+            "encrypt"
+          ]
+        }
+      }
+    },
+    {
+      "name": "encryption methods /methods",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "User-Agent",
+            "value": "insomnia/9.2.0"
+          }
+        ],
+        "url": {
+          "raw": "{{_.url}}methods",
+          "host": [
+            "{{_.url}}"
+          ],
+          "path": [
+            "methods"
+          ]
+        }
+      }
+    },
+    {
+      "name": "add new user /users",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "User-Agent",
+            "value": "insomnia/9.2.0"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"login\": \"maxh\",\n\t\"secret\": \"terx5ad\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{_.url}}users",
+          "host": [
+            "{{_.url}}"
+          ],
+          "path": [
+            "users"
+          ]
+        }
+      }
+    },
+    {
+      "name": "get all users /users",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "User-Agent",
+            "value": "insomnia/9.2.0"
+          }
+        ],
+        "url": {
+          "raw": "{{_.url}}users",
+          "host": [
+            "{{_.url}}"
+          ],
+          "path": [
+            "users"
+          ]
+        }
+      }
+    }
+  ]
 }
